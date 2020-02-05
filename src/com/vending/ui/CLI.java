@@ -184,12 +184,14 @@ public class CLI {
 
             switch (input) {
                 case "c":
-                    latestResult = latestCakes;
-                    break;
+                    latestResult = "Cakes:";
+                    latestResult += latestCakes;
+                    return;
 
                 case "m":
-                    latestResult = latestManufacturers;
-                    break;
+                    latestResult = "Manufacturers:";
+                    latestResult += latestManufacturers;
+                    return;
 
                 case "x":
                     return;
@@ -241,12 +243,12 @@ public class CLI {
                 case "l":
                     loadOrStoreEventHandler.invoke(SerializableAction.LOAD);
                     latestResult = "The vending machine got loaded";
-                    break;
+                    return;
 
                 case "s":
                     loadOrStoreEventHandler.invoke(SerializableAction.STORE);
                     latestResult = "The vending machine got stored";
-                    break;
+                    return;
 
                 case "x":
                     return;
@@ -259,9 +261,10 @@ public class CLI {
     }
 
     private void printScreen() {
-        writer.println("\n\n\n\n\n\n\n\n");
+        writer.println("\n\n\n\n\n\n\n\n\n\n\n");
         writer.println(latestResult);
         writer.println();
+        writer.println("Latest result");
         writer.println("------------------------------------------------------------");
         writer.println(currentTitle);
         writer.println("Slots: [" + currentSlotCount + "] | Current allergens: " + currentAllergens);
