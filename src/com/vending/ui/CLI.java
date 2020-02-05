@@ -2,6 +2,7 @@ package com.vending.ui;
 
 import com.vending.models.Allergen;
 import com.vending.models.Manufacturer;
+import com.vending.models.SerializableAction;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
 
@@ -13,12 +14,13 @@ import java.util.Scanner;
 
 public class CLI {
 
-    public CLI(InputStream reader, PrintStream writer, EventHandler<Cake> addCakeEventHandler, EventHandler<Manufacturer> addManufacturerEventHandler, EventHandler<Integer> deleteCakeEventHandler) {
+    public CLI(InputStream reader, PrintStream writer, EventHandler<Cake> addCakeEventHandler, EventHandler<Manufacturer> addManufacturerEventHandler, EventHandler<Integer> deleteCakeEventHandler, EventHandler<SerializableAction> loadOrStoreEventHandler) {
         this.scanner = new Scanner(reader);
         this.writer = writer;
         this.addCakeEventHandler = addCakeEventHandler;
         this.addManufacturerEventHandler = addManufacturerEventHandler;
         this.deleteCakeEventHandler = deleteCakeEventHandler;
+        this.loadOrStoreEventHandler = loadOrStoreEventHandler;
     }
 
     private Scanner scanner;
@@ -26,6 +28,7 @@ public class CLI {
     private EventHandler<Cake> addCakeEventHandler;
     private EventHandler<Manufacturer> addManufacturerEventHandler;
     private EventHandler<Integer> deleteCakeEventHandler;
+    private EventHandler<SerializableAction> loadOrStoreEventHandler;
 
     private Integer currentSlotCount = 0;
     private EnumSet<Allergen> currentAllergens = EnumSet.noneOf(Allergen.class);
@@ -60,6 +63,7 @@ public class CLI {
             currentMenu += "\n[a] -> add";
             currentMenu += "\n[d] -> delete";
             currentMenu += "\n[s] -> show";
+            currentMenu += "\n[ls] -> load or store";
             currentMenu += "\n[x] -> exit";
             printScreen();
 
@@ -76,6 +80,10 @@ public class CLI {
 
                 case "s":
                     showMode();
+                    break;
+
+                case "ls":
+                    storageMode();
                     break;
 
                 case "x":
@@ -197,9 +205,14 @@ public class CLI {
         while (true) {
             currentTitle = "Delete mode";
             currentMenu = "Which slot do you want to empty?";
+            currentMenu += "\n[x] -> exit";
             printScreen();
 
             String input = scanner.nextLine();
+
+            if (input.equals("x"))
+                return;
+
             int index = -1;
             try {
                 index = Integer.parseInt(input);
@@ -209,6 +222,39 @@ public class CLI {
 
             latestResult = "The cake got deleted";
             deleteCakeEventHandler.invoke(index);
+        }
+    }
+
+    private void storageMode() {
+        while (true) {
+            currentTitle = "Load or Store mode";
+            currentMenu = "What do you want to do?";
+            currentMenu += "\n[l] -> load";
+            currentMenu += "\n[s] -> store";
+            currentMenu += "\n[x] -> exit";
+            printScreen();
+
+
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "l":
+                    loadOrStoreEventHandler.invoke(SerializableAction.LOAD);
+                    latestResult = "The vending machine got loaded";
+                    break;
+
+                case "s":
+                    loadOrStoreEventHandler.invoke(SerializableAction.STORE);
+                    latestResult = "The vending machine got stored";
+                    break;
+
+                case "x":
+                    return;
+
+                default:
+                    latestResult = "this was not a valid input";
+                    break;
+            }
         }
     }
 

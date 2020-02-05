@@ -1,6 +1,8 @@
 package com.vending.models;
 
-public enum Allergen {
+import java.io.Serializable;
+
+public enum Allergen implements Serializable {
     Gluten,
     Peanut,
     Hazlenut,

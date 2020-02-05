@@ -7,6 +7,7 @@ import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
 import com.vending.models.cakes.PeanutCovering;
+import com.vending.ui.EventHandler;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -29,7 +30,7 @@ class VendingMachineTest {
 
     @BeforeEach
     void setUp() {
-        vendingMachine = new VendingMachine(TEST_SLOTS, null, null);
+        vendingMachine = new VendingMachine(TEST_SLOTS, new EventHandler<>(), new EventHandler<>());
     }
 
     @AfterEach

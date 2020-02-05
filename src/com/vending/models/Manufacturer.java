@@ -1,6 +1,8 @@
 package com.vending.models;
 
-public class Manufacturer {
+import java.io.Serializable;
+
+public class Manufacturer implements Serializable {
 
     private String name;
 

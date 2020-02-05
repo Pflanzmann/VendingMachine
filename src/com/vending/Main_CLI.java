@@ -2,6 +2,7 @@ package com.vending;
 
 import com.vending.logic.VendingMachine;
 import com.vending.models.Manufacturer;
+import com.vending.models.SerializableAction;
 import com.vending.models.cakes.Cake;
 import com.vending.ui.CLI;
 import com.vending.ui.EventHandler;
@@ -15,12 +16,13 @@ public class Main_CLI {
         EventHandler<Cake> addCakeEventHandler = new EventHandler<>();
         EventHandler<Manufacturer> addManufacturerEventHandler = new EventHandler<>();
         EventHandler<Integer> deleteCakeEventHandler = new EventHandler<>();
+        EventHandler<SerializableAction> loadOrStoreEventHandler = new EventHandler<>();
 
         EventHandler<ArrayList<Cake>> showAllCakesEventHandler = new EventHandler<>();
         EventHandler<List<Manufacturer>> showManufacturerEventHandler = new EventHandler<>();
 
         VendingMachine vendingMachine = new VendingMachine(10, showAllCakesEventHandler, showManufacturerEventHandler);
-        CLI cli = new CLI(System.in, System.out, addCakeEventHandler, addManufacturerEventHandler, deleteCakeEventHandler);
+        CLI cli = new CLI(System.in, System.out, addCakeEventHandler, addManufacturerEventHandler, deleteCakeEventHandler, loadOrStoreEventHandler);
 
         vendingMachine.addObserverAllergens(cli::setCurrentAllergens);
         vendingMachine.addObserverSlotCount(cli::setCurrentSlotCount);
@@ -28,6 +30,8 @@ public class Main_CLI {
         addCakeEventHandler.addListener(new AddCakeEventListener(vendingMachine));
         addManufacturerEventHandler.addListener(new AddManufacturerListener(vendingMachine));
         deleteCakeEventHandler.addListener(new DeleteCakeListener(vendingMachine));
+        loadOrStoreEventHandler.addListener(new LoadOrStoreEventListener(vendingMachine));
+
         showAllCakesEventHandler.addListener(new ShowAllCakesListener(cli));
         showManufacturerEventHandler.addListener(new ShowAllManufacturersListener(cli));
 

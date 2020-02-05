@@ -7,13 +7,13 @@ import com.vending.models.cakes.Cake;
 import com.vending.ui.EventHandler;
 import com.vending.ui.MyObserver;
 
-import java.io.Serializable;
+import java.io.*;
 import java.time.Duration;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class VendingMachine implements Serializable, VendingMachineObservable {
+public class VendingMachine implements VendingMachineObservable {
 
     private EventHandler<ArrayList<Cake>> showAllCakesHandler;
     private EventHandler<List<Manufacturer>> showAllManufacturersHandler;
@@ -120,6 +120,8 @@ public class VendingMachine implements Serializable, VendingMachineObservable {
         updateSlotCountObservable();
 
         containingAllergens.removeAll(cake.getAllergens());
+        reCalculateAllAllergens();
+
         updateSlotCountObservable();
         updateAllergenObservable();
 
@@ -132,6 +134,12 @@ public class VendingMachine implements Serializable, VendingMachineObservable {
 
     public EnumSet<Allergen> getMissingAllergens() {
         return EnumSet.complementOf(containingAllergens);
+    }
+
+    private void reCalculateAllAllergens() {
+        for (Cake cake : cakeSlots) {
+            containingAllergens.addAll(cake.getAllergens());
+        }
     }
 
     private void updateAllergenObservable() {
@@ -156,5 +164,29 @@ public class VendingMachine implements Serializable, VendingMachineObservable {
     public void addObserverSlotCount(MyObserver<Integer> observer) {
         observersSlotCount.add(observer);
         updateSlotCountObservable();
+    }
+
+    public void serialize(OutputStream fileOutputStream) throws IOException {
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+        Object[] allLists = new Object[]{manufacturerList, cakeSlots, cakeDate};
+
+        objectOutputStream.writeObject(allLists);
+    }
+
+    public void deserialize(InputStream fileInputStream) throws IOException, ClassNotFoundException {
+        ObjectInputStream inO = new ObjectInputStream(fileInputStream);
+
+        Object[] allLists = (Object[]) inO.readObject();
+
+        this.manufacturerList = (HashMap<String, Manufacturer>) allLists[0];
+        this.cakeSlots = (ArrayList<Cake>) allLists[1];
+        this.cakeDate = (HashMap<Cake, Date>) allLists[2];
+
+        reCalculateAllAllergens();
+        updateAllergenObservable();
+        updateSlotCountObservable();
+        showAllCakesHandler.invoke(cakeSlots);
+        showAllManufacturersHandler.invoke(new ArrayList<>(manufacturerList.values()));
     }
 }
