@@ -1,51 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5aae23cc-8b31-44a4-8d9f-a98d88975fd0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/simulation/Main_Simulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/simulation/runnables/OutsourceThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/simulation/runnables/StoreThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineEventInvokesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineObserverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineSerializsationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_TCP_Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_TCP_Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/models/CoveringType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/GuiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/RemoteStartCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/event/gui/ShowAllCakesGUIListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/event/gui/ShowAllManufacturersGUIListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/Main_CLI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/logic/VendingMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/com/vending/logic/VendingMachine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/logic/VendingMachineObservable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/CLI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/com/vending/ui/CLI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/EventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/MyObserver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/AddCakeEventListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/AddManufacturerListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/DeleteCakeListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/EventManagerVendingMachine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/LoadOrStoreEventListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/ShowAllCakesListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/ShowAllManufacturersListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java/tests/VendingMachineTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/Main_CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/logic/VendingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/logic/VendingMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/logic/VendingMachineObservable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/observer/VendingMachineObservable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/MyObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/observer/MyObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/AddCakeEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/AddCakeEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/AddManufacturerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/AddManufacturerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/DeleteCakeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/DeleteCakeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/EventManagerVendingMachine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/LoadOrStoreEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/LoadOrStoreEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/ShowAllCakesListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/ShowAllCakesCLIListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/ShowAllManufacturersListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/ShowAllManufacturersCLIListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/VendingMachineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineBasicsTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="5aae23cc-8b31-44a4-8d9f-a98d88975fd0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,10 +42,12 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.vending.helper" />
       <recent name="com.tests" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -118,17 +76,25 @@
       <command value="mvn [[mockito_installation_intellij] === Using IntelliJ" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.VendingMachineObserverTest.testContainingAllergens__Success_AddSteady">
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vending.ui.GUI" />
+  <component name="RunManager" selected="Application.Main_TCP_Client">
+    <configuration name="Main_Simulation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.simulation.Main_Simulation" />
       <module name="Java" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main_GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vending.Main_GUI" />
+    <configuration name="Main_TCP_Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vending.mains.Main_TCP_Client" />
+      <module name="Java" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main_TCP_Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vending.mains.Main_TCP_Server" />
       <module name="Java" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method v="2">
@@ -141,60 +107,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VendingMachineObserverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArrayHelperTest.getArrayCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java" />
-      <option name="PACKAGE_NAME" value="com.tests.logic" />
-      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VendingMachineObserverTest.testContainingAllergens__Success_AddSteady" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Java" />
-      <option name="PACKAGE_NAME" value="com.tests.logic" />
-      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
-      <option name="METHOD_NAME" value="testContainingAllergens__Success_AddSteady" />
+      <option name="PACKAGE_NAME" value="com.tests.helper" />
+      <option name="MAIN_CLASS_NAME" value="com.tests.helper.ArrayHelperTest" />
+      <option name="METHOD_NAME" value="getArrayCount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VendingMachineObserverTest.test__Success_AddSteady" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendingMachineSerialisationTest.test_Serialize_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java" />
       <option name="PACKAGE_NAME" value="com.tests.logic" />
-      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
-      <option name="METHOD_NAME" value="test__Success_AddSteady" />
+      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineSerialisationTest" />
+      <option name="METHOD_NAME" value="test_Serialize_Success" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VendingMachineObserverTest.test__Success_RemoveSteady" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Java" />
-      <option name="PACKAGE_NAME" value="com.tests.logic" />
-      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
-      <option name="METHOD_NAME" value="test__Success_RemoveSteady" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.tests.logic in Java" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Java" />
-      <option name="PACKAGE_NAME" value="com.tests.logic" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VendingMachineObserverTest.testContainingAllergens__Success_AddSteady" />
-        <item itemvalue="JUnit.VendingMachineObserverTest.test__Success_RemoveSteady" />
-        <item itemvalue="JUnit.com.tests.logic in Java" />
-        <item itemvalue="JUnit.VendingMachineObserverTest.test__Success_AddSteady" />
-        <item itemvalue="JUnit.VendingMachineObserverTest" />
+        <item itemvalue="Application.Main_TCP_Client" />
+        <item itemvalue="Application.Main_TCP_Server" />
+        <item itemvalue="JUnit.ArrayHelperTest.getArrayCount" />
+        <item itemvalue="Application.Main_Simulation" />
+        <item itemvalue="JUnit.VendingMachineSerialisationTest.test_Serialize_Success" />
       </list>
     </recent_temporary>
   </component>
@@ -216,10 +155,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Auto_Import/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580989145680" />
-    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1581037749377">
+    <state x="552" y="179" key="#Plugins" timestamp="1581070480715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581037749377" />
+    <state x="552" y="179" key="#Plugins/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581070480715" />
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1581080866889">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581080866889" />
     <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1581039107380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -244,42 +187,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580850302184" />
+    <state x="707" y="377" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1581083609263">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="377" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083609263" />
     <state x="666" y="262" key="FileChooserDialogImpl" timestamp="1581033893747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581033893747" />
-    <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1581040571563">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
-    <state width="1877" height="342" key="GridCell.Tab.0.center" timestamp="1581040571563">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
+    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
-    <state width="1877" height="342" key="GridCell.Tab.0.left" timestamp="1581040571563">
+    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
+    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
-    <state width="1877" height="342" key="GridCell.Tab.0.right" timestamp="1581040571563">
+    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
+    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1581040569642">
+    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1581040569642">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1581040569642">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1581040569642">
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1581083536752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083536752" />
     <state x="720" y="232" key="RollbackChangesDialog" timestamp="1581031232849">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -300,10 +247,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581032720586" />
-    <state x="724" y="239" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1581037175322">
+    <state x="724" y="239" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1581082757519">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="724" y="239" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581037175322" />
+    <state x="724" y="239" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581082757519" />
     <state x="187" y="191" width="1534" height="777" key="dock-window-1" timestamp="1581011544412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -324,9 +271,31 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581038900267" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581040539685">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581083607313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040539685" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581083607313" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/tests/logic/VendingMachineBasicsTest.java</url>
+          <line>120</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/tests/logic/VendingMachineObserverTest.java</url>
+          <line>118</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

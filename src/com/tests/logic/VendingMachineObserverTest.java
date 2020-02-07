@@ -103,8 +103,8 @@ public class VendingMachineObserverTest {
 
         Manufacturer testManufacturer = new Manufacturer(TEST_FACTORY_NAME1);
         Cake cake0 = new CakeBasis(TEST_FACTORY_NAME1);
-        Cake cake1 = new HazelnutCovering(cake0);
-        Cake cake2 = new PeanutCovering(cake0);
+        Cake cake1 = new HazelnutCovering(new CakeBasis(TEST_FACTORY_NAME1));
+        Cake cake2 = new PeanutCovering(new CakeBasis(TEST_FACTORY_NAME1));
 
 
         Assertions.assertDoesNotThrow(() -> vendingMachine.addManufacturer(testManufacturer));
@@ -116,10 +116,10 @@ public class VendingMachineObserverTest {
             Assertions.assertEquals(expectedSlots.get(), value.size());
         });
 
-        vendingMachine.removeCake(cake0);
-        vendingMachine.removeCake(cake1);
-        expectedSlots.getAndDecrement();
-        vendingMachine.removeCake(cake2);
+        Assertions.assertDoesNotThrow(() -> vendingMachine.removeCake(cake0));
+        expectedSlots.decrementAndGet();
+        Assertions.assertDoesNotThrow(() -> vendingMachine.removeCake(cake1));
         expectedSlots.set(0);
+        Assertions.assertDoesNotThrow(() -> vendingMachine.removeCake(cake2));
     }
 }

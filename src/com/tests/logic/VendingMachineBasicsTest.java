@@ -12,13 +12,11 @@ import com.vending.models.cakes.CakeBasis;
 import com.vending.models.cakes.PeanutCovering;
 import com.vending.ui.event.EventHandler;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
@@ -167,10 +165,10 @@ class VendingMachineBasicsTest {
         Assertions.assertDoesNotThrow(() -> vendingMachine.addCakeGetIndex(cake3));
 
         Assertions.assertDoesNotThrow(() -> {
-            ArrayList<Cake> cakes = vendingMachine.getAllCakes();
-            Assertions.assertTrue(cakes.contains(cake1));
-            Assertions.assertTrue(cakes.contains(cake2));
-            Assertions.assertTrue(cakes.contains(cake3));
+            Cake[] cakes = vendingMachine.getAllCakes();
+            Assertions.assertEquals(cake1, cakes[0]);
+            Assertions.assertEquals(cake2, cakes[1]);
+            Assertions.assertEquals(cake3, cakes[2]);
         });
     }
 

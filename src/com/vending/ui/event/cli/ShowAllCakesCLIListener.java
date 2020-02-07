@@ -4,9 +4,7 @@ import com.vending.models.cakes.Cake;
 import com.vending.ui.CLI;
 import com.vending.ui.event.EventListener;
 
-import java.util.ArrayList;
-
-public class ShowAllCakesCLIListener implements EventListener<ArrayList<Cake>> {
+public class ShowAllCakesCLIListener implements EventListener<Cake[]> {
 
     private CLI cli;
 
@@ -15,11 +13,14 @@ public class ShowAllCakesCLIListener implements EventListener<ArrayList<Cake>> {
     }
 
     @Override
-    public void handle(ArrayList<Cake> value) {
+    public void handle(Cake[] value) {
         String output = "";
 
-        for(int i = 0; i < value.size(); i++) {
-            output += "\nSlot: " + i + " | Cake: " + value.get(i).getCakeType();
+        for (int i = 0; i < value.length; i++) {
+            if (value[i] != null)
+                output += "\nSlot: " + i + " | Cake: " + value[i].getCakeType();
+            else
+                output += "\nSlot: " + i + " | Cake: empty";
         }
 
         cli.setLatestCakes(output);

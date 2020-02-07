@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class ShowAllCakesGUIListener implements EventListener<ArrayList<Cake>> {
+public class ShowAllCakesGUIListener implements EventListener<Cake[]> {
 
     private ObjectOutputStream objectOutputStream;
 
@@ -16,7 +16,7 @@ public class ShowAllCakesGUIListener implements EventListener<ArrayList<Cake>> {
     }
 
     @Override
-    public void handle(ArrayList<Cake> value) {
+    public void handle(Cake[] value) {
         try {
             objectOutputStream.writeObject(value);
         } catch (IOException e) {

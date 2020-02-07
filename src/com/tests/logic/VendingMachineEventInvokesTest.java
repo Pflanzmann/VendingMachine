@@ -1,5 +1,6 @@
 package com.tests.logic;
 
+import com.vending.helper.ArrayHelper;
 import com.vending.logic.VendingMachine;
 import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
@@ -9,7 +10,6 @@ import com.vending.ui.event.EventHandler;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class VendingMachineEventInvokesTest {
@@ -24,29 +24,29 @@ public class VendingMachineEventInvokesTest {
         Cake testCake1 = new CakeBasis(TEST_FACTORY_NAME1);
         Cake testCake2 = new CakeBasis(TEST_FACTORY_NAME1);
 
-        EventHandler<ArrayList<Cake>> testEvent = new EventHandler<ArrayList<Cake>>() {
+        EventHandler<Cake[]> testEvent = new EventHandler<Cake[]>() {
             boolean firstCall = true;
 
             @Override
-            public void invoke(ArrayList<Cake> value) {
-                Assertions.assertEquals(testCake1, value.get(0));
+            public void invoke(Cake[] value) {
+                Assertions.assertEquals(testCake1, value[0]);
                 if (firstCall) {
-                    Assertions.assertEquals(1, value.size());
+                    Assertions.assertEquals(TEST_SLOTS, value.length);
+                    Assertions.assertEquals(1, ArrayHelper.getArrayCount(value));
                     firstCall = false;
-                    return;
+                } else {
+                    Assertions.assertEquals(testCake2, value[1]);
+                    Assertions.assertEquals(TEST_SLOTS, value.length);
+                    Assertions.assertEquals(2, ArrayHelper.getArrayCount(value));
                 }
-                Assertions.assertEquals(testCake2, value.get(1));
-                Assertions.assertEquals(2, value.size());
             }
         };
 
         VendingMachine vendingMachine = new VendingMachine(TEST_SLOTS, testEvent, new EventHandler<>());
 
-        Assertions.assertDoesNotThrow(() -> {
-            vendingMachine.addManufacturer(testManufacturer);
-            vendingMachine.addCakeGetIndex(testCake1);
-            vendingMachine.addCakeGetIndex(testCake2);
-        });
+        Assertions.assertDoesNotThrow(() -> vendingMachine.addManufacturer(testManufacturer));
+        Assertions.assertDoesNotThrow(() -> vendingMachine.addCakeGetIndex(testCake1));
+        Assertions.assertDoesNotThrow(() -> vendingMachine.addCakeGetIndex(testCake2));
     }
 
     @Test

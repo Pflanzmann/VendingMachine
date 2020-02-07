@@ -3,6 +3,7 @@ package com.simulation.runnables;
 import com.vending.exceptions.ContainsCakeException;
 import com.vending.exceptions.ManufacturerNotFoundException;
 import com.vending.exceptions.NoSpaceException;
+import com.vending.helper.ArrayHelper;
 import com.vending.logic.VendingMachine;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
@@ -35,7 +36,7 @@ public class StoreThread implements Runnable {
                 boolean notAllFull = false;
 
                 for (VendingMachine vendingMachine : vendingMachines) {
-                    if (vendingMachine.getAllCakes().size() != 10) {
+                    if (ArrayHelper.getArrayCount(vendingMachine.getAllCakes()) != 10) {
                         notAllFull = true;
                     }
                 }
@@ -49,7 +50,6 @@ public class StoreThread implements Runnable {
 
                 Cake cake = new CakeBasis(MANUFACTURER_NAME);
                 int randomVendingMachine = new Random().nextInt(vendingMachines.length);
-
 
                 try {
                     writer.println(threadName + " tries to add into vending machine number " + randomVendingMachine);

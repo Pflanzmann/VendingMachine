@@ -6,9 +6,7 @@ import com.vending.models.cakes.Cake;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
-import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +60,7 @@ public class GuiController implements Initializable {
     private ObjectInputStream objectInputStreamManufacturers;
 
     private List<CoveringType> coveringList = new ArrayList<>();
-    private List<Cake> cakesCache;
+    private Cake[] cakesCache;
     private List<Manufacturer> manufacturersCache;
 
     @Override
@@ -173,8 +171,7 @@ public class GuiController implements Initializable {
 
     private void updateCakes() {
         try {
-            ArrayList<Cake> cakes = new ArrayList<>((ArrayList<Cake>) objectInputStreamCakes.readObject());
-            cakesCache = cakes;
+            cakesCache = (Cake[]) objectInputStreamCakes.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -182,16 +179,18 @@ public class GuiController implements Initializable {
 
         Platform.runLater(() -> {
             listViewAllCakes.getItems().clear();
-            for (Cake cake : cakesCache) {
-                listViewAllCakes.getItems().add(cake.getCakeType());
+            for (int i = 0; i < cakesCache.length; i++) {
+                if (cakesCache[i] != null)
+                    listViewAllCakes.getItems().add(i + " | " + cakesCache[i].getCakeType());
+                else
+                    listViewAllCakes.getItems().add(i + " | empty");
             }
         });
     }
 
     private void updateManufacturers() {
         try {
-            List<Manufacturer> manufacturers = (List<Manufacturer>) objectInputStreamManufacturers.readObject();
-            manufacturersCache = manufacturers;
+            manufacturersCache = (List<Manufacturer>) objectInputStreamManufacturers.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

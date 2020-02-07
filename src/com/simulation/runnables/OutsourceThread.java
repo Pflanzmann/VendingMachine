@@ -8,6 +8,7 @@ import com.vending.models.cakes.Cake;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class OutsourceThread implements Runnable {
@@ -38,14 +39,14 @@ public class OutsourceThread implements Runnable {
                 }
             }
             synchronized (storeLock) {
-                ArrayList<Cake> cakes = outsourceVendingMachine.getAllCakes();
-                Cake oldestCake = cakes.stream().min(Comparator.comparing(Cake::getShelfLife)).orElse(null);
+                Cake[] cakes = outsourceVendingMachine.getAllCakes();
+                Cake oldestCake = Arrays.stream(cakes).min(Comparator.comparing(Cake::getShelfLife)).orElse(null);
 
                 try {
                     outsourceVendingMachine.removeCake(oldestCake);
                     storeVendingMachine.addCakeGetIndex(oldestCake);
                     writer.println("\t\t\t" + threadName + " did outsource");
-                    writer.println("\t\t\t" + threadName + " OutCount: " + outsourceVendingMachine.getAllCakes().size() + " InCount: " + storeVendingMachine.getAllCakes().size());
+                    writer.println("\t\t\t" + threadName + " OutCount: " + outsourceVendingMachine.getAllCakes().length + " InCount: " + storeVendingMachine.getAllCakes().length);
 
                     storeLock.notifyAll();
                 } catch (ManufacturerNotFoundException | ContainsCakeException e) {

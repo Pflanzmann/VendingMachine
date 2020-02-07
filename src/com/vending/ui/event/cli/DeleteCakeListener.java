@@ -14,7 +14,7 @@ public class DeleteCakeListener implements EventListener<Integer> {
 
     @Override
     public void handle(Integer value) {
-        if (value >= vendingMachine.getAllCakes().size())
+        if (value >= vendingMachine.getAllCakes().length)
             return;
         Cake cake = vendingMachine.getCakeFromSlot(value);
         vendingMachine.removeCake(cake);

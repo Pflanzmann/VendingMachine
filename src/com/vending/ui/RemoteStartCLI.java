@@ -39,7 +39,7 @@ public class RemoteStartCLI {
                 EventHandler<Integer> deleteCakeEventHandler = new EventHandler<>();
                 EventHandler<SerializableAction> loadOrStoreEventHandler = new EventHandler<>();
 
-                EventHandler<ArrayList<Cake>> showAllCakesEventHandler = new EventHandler<>();
+                EventHandler<Cake[]> showAllCakesEventHandler = new EventHandler<>();
                 EventHandler<List<Manufacturer>> showManufacturerEventHandler = new EventHandler<>();
 
                 VendingMachine vendingMachine = new VendingMachine(10, showAllCakesEventHandler, showManufacturerEventHandler);
