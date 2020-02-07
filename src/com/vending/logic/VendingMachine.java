@@ -4,8 +4,9 @@ import com.vending.exceptions.*;
 import com.vending.models.Allergen;
 import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
-import com.vending.ui.EventHandler;
-import com.vending.ui.MyObserver;
+import com.vending.ui.event.EventHandler;
+import com.vending.ui.observer.MyObserver;
+import com.vending.ui.observer.VendingMachineObservable;
 
 import java.io.*;
 import java.time.Duration;
@@ -20,11 +21,12 @@ public class VendingMachine implements VendingMachineObservable {
 
     private Map<String, Manufacturer> manufacturerList = new HashMap<>();
     private Map<Cake, Date> cakeDate = new HashMap<>();
-    private ArrayList<Cake> cakeSlots;
+    private ArrayList<Cake> cakeSlots = new ArrayList<>();
 
     private EnumSet<Allergen> containingAllergens = EnumSet.noneOf(Allergen.class);
 
     private int freeSlots;
+    private int maxSlots;
 
     List<MyObserver<EnumSet<Allergen>>> observersAllergen = new ArrayList<>();
     List<MyObserver<Integer>> observersSlotCount = new ArrayList<>();
@@ -33,8 +35,7 @@ public class VendingMachine implements VendingMachineObservable {
         this.showAllCakesHandler = showAllCakesHandler;
         this.showAllManufacturersHandler = showAllManufacturersHandler;
         this.freeSlots = slots;
-        cakeSlots = new ArrayList<>(slots);
-        cakeSlots.ensureCapacity(slots);
+        this.maxSlots = slots;
 
         updateAllergenObservable();
         updateSlotCountObservable();
@@ -55,7 +56,7 @@ public class VendingMachine implements VendingMachineObservable {
         return manufacturerList.get(ManufacturerTypeName);
     }
 
-    public int addCakeGetIndex(Cake cake) throws ManufacturerNotFoundException, NoSpaceException, ContainsCakeException {
+    public synchronized int addCakeGetIndex(Cake cake) throws ManufacturerNotFoundException, NoSpaceException, ContainsCakeException {
         if (!manufacturerList.containsKey(cake.getManufacturerName())) {
             throw new ManufacturerNotFoundException();
 
@@ -66,19 +67,19 @@ public class VendingMachine implements VendingMachineObservable {
             throw new NoSpaceException();
 
         } else {
-            freeSlots--;
             cakeSlots.add(cake);
             cakeDate.put(cake, new Date());
-            containingAllergens.addAll(cake.getAllergens());
+
+            reCalculateAllAllergens();
 
             updateSlotCountObservable();
             updateAllergenObservable();
-            showAllCakesHandler.invoke(cakeSlots);
+            showAllCakesHandler.invoke(new ArrayList<>(cakeSlots));
             return cakeSlots.indexOf(cake);
         }
     }
 
-    public ArrayList<Cake> getAllCakes() {
+    public synchronized ArrayList<Cake> getAllCakes() {
         return new ArrayList<>(cakeSlots);
     }
 
@@ -86,7 +87,7 @@ public class VendingMachine implements VendingMachineObservable {
         return cakeSlots.stream().filter(x -> x.getManufacturerName().equals(ManufacturerName)).count();
     }
 
-    public List<Cake> searchFor(Predicate<Cake> predicate) {
+    public List<Cake> searchForAll(Predicate<Cake> predicate) {
         return cakeSlots.stream().filter(predicate).collect(Collectors.toList());
     }
 
@@ -112,20 +113,16 @@ public class VendingMachine implements VendingMachineObservable {
         return duration;
     }
 
-    public void removeCake(Cake cake) {
+    public synchronized void removeCake(Cake cake) {
         cakeDate.remove(cake);
         cakeSlots.remove(cake);
 
-        freeSlots++;
-        updateSlotCountObservable();
-
-        containingAllergens.removeAll(cake.getAllergens());
         reCalculateAllAllergens();
 
         updateSlotCountObservable();
         updateAllergenObservable();
 
-        showAllCakesHandler.invoke(cakeSlots);
+        showAllCakesHandler.invoke(new ArrayList<>(cakeSlots));
     }
 
     public EnumSet<Allergen> getAllAllergens() {
@@ -136,20 +133,23 @@ public class VendingMachine implements VendingMachineObservable {
         return EnumSet.complementOf(containingAllergens);
     }
 
-    private void reCalculateAllAllergens() {
+    private synchronized void reCalculateAllAllergens() {
+        freeSlots = maxSlots;
+        containingAllergens = EnumSet.noneOf(Allergen.class);
         for (Cake cake : cakeSlots) {
             containingAllergens.addAll(cake.getAllergens());
+            freeSlots--;
         }
     }
 
     private void updateAllergenObservable() {
-        for (MyObserver observer : observersAllergen) {
+        for (MyObserver<EnumSet<Allergen>> observer : observersAllergen) {
             observer.handle(containingAllergens);
         }
     }
 
     private void updateSlotCountObservable() {
-        for (MyObserver observer : observersSlotCount) {
+        for (MyObserver<Integer> observer : observersSlotCount) {
             observer.handle(freeSlots);
         }
     }
@@ -166,7 +166,7 @@ public class VendingMachine implements VendingMachineObservable {
         updateSlotCountObservable();
     }
 
-    public void serialize(OutputStream fileOutputStream) throws IOException {
+    public synchronized void serialize(OutputStream fileOutputStream) throws IOException {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
         Object[] allLists = new Object[]{manufacturerList, cakeSlots, cakeDate};
@@ -174,7 +174,7 @@ public class VendingMachine implements VendingMachineObservable {
         objectOutputStream.writeObject(allLists);
     }
 
-    public void deserialize(InputStream fileInputStream) throws IOException, ClassNotFoundException {
+    public synchronized void deserialize(InputStream fileInputStream) throws IOException, ClassNotFoundException {
         ObjectInputStream inO = new ObjectInputStream(fileInputStream);
 
         Object[] allLists = (Object[]) inO.readObject();
@@ -186,7 +186,7 @@ public class VendingMachine implements VendingMachineObservable {
         reCalculateAllAllergens();
         updateAllergenObservable();
         updateSlotCountObservable();
-        showAllCakesHandler.invoke(cakeSlots);
+        showAllCakesHandler.invoke(new ArrayList<>(cakeSlots));
         showAllManufacturersHandler.invoke(new ArrayList<>(manufacturerList.values()));
     }
 }

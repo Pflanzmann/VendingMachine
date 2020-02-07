@@ -1,10 +1,11 @@
-package com.vending.ui.event;
+package com.vending.ui.event.cli;
 
 import com.vending.exceptions.ContainsCakeException;
 import com.vending.exceptions.ManufacturerNotFoundException;
 import com.vending.exceptions.NoSpaceException;
 import com.vending.logic.VendingMachine;
 import com.vending.models.cakes.Cake;
+import com.vending.ui.event.EventListener;
 
 public class AddCakeEventListener implements EventListener<Cake> {
 
@@ -12,10 +13,6 @@ public class AddCakeEventListener implements EventListener<Cake> {
 
     public AddCakeEventListener(VendingMachine vendingMachine) {
         this.vendingMachine = vendingMachine;
-    }
-
-    public void onAddCake(Cake cake) {
-
     }
 
     @Override

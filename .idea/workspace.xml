@@ -2,9 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5aae23cc-8b31-44a4-8d9f-a98d88975fd0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/simulation/Main_Simulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/simulation/runnables/OutsourceThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/simulation/runnables/StoreThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineEventInvokesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineObserverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineSerializsationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_GUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_TCP_Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_TCP_Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/models/CoveringType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/GuiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/RemoteStartCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/event/gui/ShowAllCakesGUIListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vending/ui/event/gui/ShowAllManufacturersGUIListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/Main_CLI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/logic/VendingMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/com/vending/logic/VendingMachine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/logic/VendingMachineObservable.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/CLI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java/com/vending/ui/CLI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/EventHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/MyObserver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/AddCakeEventListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/AddManufacturerListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/DeleteCakeListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/EventManagerVendingMachine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/LoadOrStoreEventListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/ShowAllCakesListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/com/vending/ui/event/ShowAllManufacturersListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java/tests/VendingMachineTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/Main_CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/mains/Main_CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/logic/VendingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/logic/VendingMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/logic/VendingMachineObservable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/observer/VendingMachineObservable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/vending/ui/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/EventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/MyObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/observer/MyObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/AddCakeEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/AddCakeEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/AddManufacturerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/AddManufacturerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/DeleteCakeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/DeleteCakeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/EventManagerVendingMachine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/LoadOrStoreEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/LoadOrStoreEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/ShowAllCakesListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/ShowAllCakesCLIListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vending/ui/event/ShowAllManufacturersListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vending/ui/event/cli/ShowAllManufacturersCLIListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/VendingMachineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tests/logic/VendingMachineBasicsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,10 +54,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -40,11 +81,12 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Verkaufsautomat_Prog3" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -58,6 +100,7 @@
       <recent name="com.tests" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vending.mains" />
       <recent name="com.vending.database" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -75,17 +118,17 @@
       <command value="mvn [[mockito_installation_intellij] === Using IntelliJ" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main_CLI">
-    <configuration name="CLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vending.ui.CLI" />
+  <component name="RunManager" selected="JUnit.VendingMachineObserverTest.testContainingAllergens__Success_AddSteady">
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vending.ui.GUI" />
       <module name="Java" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main_CLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vending.Main_CLI" />
+    <configuration name="Main_GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vending.Main_GUI" />
       <module name="Java" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method v="2">
@@ -98,42 +141,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VendingMachineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendingMachineObserverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.VendingMachineTest" />
+      <option name="PACKAGE_NAME" value="com.tests.logic" />
+      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VendingMachineTest.getCakeFromSlot_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendingMachineObserverTest.testContainingAllergens__Success_AddSteady" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.VendingMachineTest" />
-      <option name="METHOD_NAME" value="getCakeFromSlot_Success" />
+      <option name="PACKAGE_NAME" value="com.tests.logic" />
+      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
+      <option name="METHOD_NAME" value="testContainingAllergens__Success_AddSteady" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VendingMachineTest.getSlotFromCake_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendingMachineObserverTest.test__Success_AddSteady" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.VendingMachineTest" />
-      <option name="METHOD_NAME" value="getSlotFromCake_Success" />
+      <option name="PACKAGE_NAME" value="com.tests.logic" />
+      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
+      <option name="METHOD_NAME" value="test__Success_AddSteady" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VendingMachineObserverTest.test__Success_RemoveSteady" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java" />
+      <option name="PACKAGE_NAME" value="com.tests.logic" />
+      <option name="MAIN_CLASS_NAME" value="com.tests.logic.VendingMachineObserverTest" />
+      <option name="METHOD_NAME" value="test__Success_RemoveSteady" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.tests.logic in Java" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java" />
+      <option name="PACKAGE_NAME" value="com.tests.logic" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main_CLI" />
-        <item itemvalue="JUnit.VendingMachineTest" />
-        <item itemvalue="Application.CLI" />
-        <item itemvalue="JUnit.VendingMachineTest.getSlotFromCake_Success" />
-        <item itemvalue="JUnit.VendingMachineTest.getCakeFromSlot_Success" />
+        <item itemvalue="JUnit.VendingMachineObserverTest.testContainingAllergens__Success_AddSteady" />
+        <item itemvalue="JUnit.VendingMachineObserverTest.test__Success_RemoveSteady" />
+        <item itemvalue="JUnit.com.tests.logic in Java" />
+        <item itemvalue="JUnit.VendingMachineObserverTest.test__Success_AddSteady" />
+        <item itemvalue="JUnit.VendingMachineObserverTest" />
       </list>
     </recent_temporary>
   </component>
@@ -151,50 +212,82 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1580934670036">
+    <state x="552" y="179" key="#Auto_Import" timestamp="1580989145680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580934670036" />
+    <state x="552" y="179" key="#Auto_Import/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580989145680" />
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1581037749377">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581037749377" />
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1581039107380">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581039107380" />
     <state x="690" y="297" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1580762835582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="297" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580762835582" />
+    <state x="756" y="406" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1581006888394">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="406" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581006888394" />
     <state x="756" y="427" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1580562702669">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="427" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580562702669" />
-    <state x="494" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1580824566628">
+    <state x="494" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581003203128">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="494" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580824566628" />
+    <state x="494" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581003203128" />
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580850302184">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580850302184" />
-    <state x="666" y="262" key="FileChooserDialogImpl" timestamp="1580933144421">
+    <state x="666" y="262" key="FileChooserDialogImpl" timestamp="1581033893747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580933144421" />
-    <state width="1877" height="335" key="GridCell.Tab.0.bottom" timestamp="1580938585728">
+    <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581033893747" />
+    <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1581040571563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580938585728" />
-    <state width="1877" height="335" key="GridCell.Tab.0.center" timestamp="1580938585728">
+    <state width="1877" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
+    <state width="1877" height="342" key="GridCell.Tab.0.center" timestamp="1581040571563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580938585728" />
-    <state width="1877" height="335" key="GridCell.Tab.0.left" timestamp="1580938585727">
+    <state width="1877" height="342" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
+    <state width="1877" height="342" key="GridCell.Tab.0.left" timestamp="1581040571563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580938585727" />
-    <state width="1877" height="335" key="GridCell.Tab.0.right" timestamp="1580938585728">
+    <state width="1877" height="342" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
+    <state width="1877" height="342" key="GridCell.Tab.0.right" timestamp="1581040571563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580938585728" />
-    <state x="440" y="95" key="SettingsEditor" timestamp="1580750624153">
+    <state width="1877" height="342" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040571563" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1581040569642">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580750624153" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1581040569642">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1581040569642">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1581040569642">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040569642" />
+    <state x="720" y="232" key="RollbackChangesDialog" timestamp="1581031232849">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="720" y="232" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581031232849" />
+    <state x="440" y="95" key="SettingsEditor" timestamp="1581008390782">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581008390782" />
     <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1580335512128">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -203,17 +296,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="664" y="414" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580334616662" />
-    <state x="702" y="140" key="refactoring.ChangeSignatureDialog" timestamp="1580935187727">
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581032720586">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="702" y="140" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580935187727" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1580842832495">
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581032720586" />
+    <state x="724" y="239" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1581037175322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580842832495" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1580850829818">
+    <state x="724" y="239" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581037175322" />
+    <state x="187" y="191" width="1534" height="777" key="dock-window-1" timestamp="1581011544412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580850829818" />
+    <state x="187" y="191" width="1534" height="777" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581011544412" />
+    <state x="2029" y="-17" width="1534" height="777" maximized="true" key="dock-window-2" timestamp="1581012510279">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2029" y="-17" width="1534" height="777" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581012510279" />
+    <state x="2280" y="0" width="1534" height="777" key="dock-window-3" timestamp="1581012510279">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2280" y="0" width="1534" height="777" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581012510279" />
+    <state x="702" y="140" key="refactoring.ChangeSignatureDialog" timestamp="1581001735194">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="140" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581001735194" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1581038900267">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581038900267" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581040539685">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581040539685" />
   </component>
 </project>

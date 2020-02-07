@@ -1,18 +1,22 @@
-package tests;
+package com.tests.logic;
 
-import com.vending.exceptions.*;
+import com.vending.exceptions.ContainsCakeException;
+import com.vending.exceptions.ManufacturerAlreadyExistsException;
+import com.vending.exceptions.ManufacturerNotFoundException;
+import com.vending.exceptions.NoSpaceException;
 import com.vending.logic.VendingMachine;
 import com.vending.models.Allergen;
 import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
 import com.vending.models.cakes.PeanutCovering;
-import com.vending.ui.EventHandler;
+import com.vending.ui.event.EventHandler;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -20,9 +24,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class VendingMachineTest {
+class VendingMachineBasicsTest {
 
-    VendingMachine vendingMachine;
+    private VendingMachine vendingMachine;
+    private EventHandler mockHandler1 = Mockito.mock(EventHandler.class);
+    private EventHandler mockHandler2 = Mockito.mock(EventHandler.class);
 
     private final int TEST_SLOTS = 3;
     private final String TEST_FACTORY_NAME1 = "Apple";
@@ -30,12 +36,7 @@ class VendingMachineTest {
 
     @BeforeEach
     void setUp() {
-        vendingMachine = new VendingMachine(TEST_SLOTS, new EventHandler<>(), new EventHandler<>());
-    }
-
-    @AfterEach
-    void tearDown() {
-        vendingMachine = null;
+        vendingMachine = new VendingMachine(TEST_SLOTS, mockHandler1, mockHandler2);
     }
 
     @Test
@@ -358,7 +359,7 @@ class VendingMachineTest {
         Assertions.assertDoesNotThrow(() -> vendingMachine.addCakeGetIndex(cake2));
         Assertions.assertDoesNotThrow(() -> vendingMachine.addCakeGetIndex(cake3));
 
-        List<Cake> resultCakes = vendingMachine.searchFor(x -> x.getNutritionalValue() > 30);
+        List<Cake> resultCakes = vendingMachine.searchForAll(x -> x.getNutritionalValue() > 30);
 
         Assertions.assertTrue(resultCakes.contains(cake2));
         Assertions.assertTrue(resultCakes.contains(cake3));
@@ -377,7 +378,7 @@ class VendingMachineTest {
         Assertions.assertDoesNotThrow(() -> vendingMachine.addCakeGetIndex(cake2));
         Assertions.assertDoesNotThrow(() -> vendingMachine.addCakeGetIndex(cake3));
 
-        List<Cake> resultCakes = vendingMachine.searchFor(x -> x.getPrice().floatValue() > 10);
+        List<Cake> resultCakes = vendingMachine.searchForAll(x -> x.getPrice().floatValue() > 10);
 
         Assertions.assertTrue(resultCakes.contains(cake2));
         Assertions.assertTrue(resultCakes.contains(cake3));

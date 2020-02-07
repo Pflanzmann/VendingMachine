@@ -5,6 +5,7 @@ import com.vending.models.Manufacturer;
 import com.vending.models.SerializableAction;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
+import com.vending.ui.event.EventHandler;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -111,7 +112,8 @@ public class CLI {
                 case "c":
                     Cake cake = buildCake();
                     addCakeEventHandler.invoke(cake);
-                    break;
+                    latestResult = "Cake got created";
+                    return;
 
                 case "m":
                     currentTitle = "Create manufacturer";
@@ -119,7 +121,8 @@ public class CLI {
                     printScreen();
                     String manufacturerName = scanner.nextLine();
                     addManufacturerEventHandler.invoke(new Manufacturer(manufacturerName));
-                    break;
+                    latestResult = "Manufacturer got created";
+                    return;
 
                 case "x":
                     return;
@@ -204,28 +207,26 @@ public class CLI {
     }
 
     private void deleteMode() {
-        while (true) {
-            currentTitle = "Delete mode";
-            currentMenu = "Which slot do you want to empty?";
-            currentMenu += "\n[x] -> exit";
-            printScreen();
+        currentTitle = "Delete mode";
+        currentMenu = "Which slot do you want to empty?";
+        currentMenu += "\n[x] -> exit";
+        latestResult = "";
+        printScreen();
 
-            String input = scanner.nextLine();
+        String input = scanner.nextLine();
 
-            if (input.equals("x"))
-                return;
 
-            int index = -1;
-            try {
-                index = Integer.parseInt(input);
-            } catch (Exception e) {
-                continue;
-            }
-
-            latestResult = "The cake got deleted";
-            deleteCakeEventHandler.invoke(index);
+        int index = -1;
+        try {
+            index = Integer.parseInt(input);
+        } catch (Exception e) {
+            latestResult = "this was not a valid input: " + input;
+            return;
         }
+        latestResult = "The slot is now empty";
+        deleteCakeEventHandler.invoke(index);
     }
+
 
     private void storageMode() {
         while (true) {

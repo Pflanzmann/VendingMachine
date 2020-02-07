@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vending.ui.GuiController">
+   <children>
+      <SplitPane dividerPositions="0.6349206349206349" layoutX="148.0" layoutY="159.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="312.0" prefWidth="198.0">
+               <children>
+                  <TabPane layoutX="6.0" prefHeight="508.0" prefWidth="457.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Add manufacturer">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="textViewManufacturerInput" layoutX="104.0" layoutY="102.0" AnchorPane.leftAnchor="104.0" />
+                                    <Button fx:id="buttonAddManufacturer" layoutX="159.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#setButtonAddManufacturer" text="Add" />
+                                    <Text fx:id="testText" layoutX="75.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What is the name of the manufacturer?" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Add cake">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="buttonFinishCake" layoutX="142.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#setButtonFinishCake" text="Finish cake" />
+                                    <Button fx:id="buttonAddHazelnutCovering" layoutX="15.0" layoutY="271.0" mnemonicParsing="false" onMouseClicked="#setButtonAddHazelnutCovering" text="Hazelnut" />
+                                    <Button fx:id="buttonAddPeanutCovering" layoutX="14.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#setButtonAddPeanutCovering" prefHeight="25.0" prefWidth="65.0" text="Peanut" />
+                                    <Text layoutX="14.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Which covering do you want to add?" />
+                                    <ChoiceBox fx:id="choiceBoxManufacturerNames" layoutX="16.0" layoutY="122.0" prefWidth="150.0" />
+                                    <Text layoutX="17.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a manufacturer" />
+                                    <Button fx:id="buttonResetCake" layoutX="153.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#setButtonResetCake" text="Reset" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Delete cake">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="textFieldDeleteIndex" layoutX="96.0" layoutY="124.0" />
+                                    <Button fx:id="buttonDeleteCake" layoutX="145.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#setButtonDeleteCake" text="Delete" />
+                                    <Text layoutX="88.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Which slot do you want to delete?" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Store/ Load">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="buttonStore" layoutX="50.0" layoutY="96.0" mnemonicParsing="false" onMouseClicked="#setButtonStore" text="Store" />
+                                    <Button fx:id="buttonLoad" layoutX="51.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#setButtonLoad" text="Load" />
+                                    <Text layoutX="50.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stores all cakes and manufacturers on the disk." />
+                                    <Text layoutX="51.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loads all cakes and manufacturers from the disk." />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ListView fx:id="listViewAllManufacturers" layoutX="-1.0" layoutY="40.0" prefHeight="205.0" prefWidth="204.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ListView fx:id="listViewAllCakes" layoutY="199.0" prefHeight="295.0" prefWidth="204.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

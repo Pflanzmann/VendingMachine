@@ -1,15 +1,16 @@
-package com.vending.ui.event;
+package com.vending.ui.event.cli;
 
 import com.vending.models.Manufacturer;
 import com.vending.ui.CLI;
+import com.vending.ui.event.EventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowAllManufacturersListener implements EventListener<List<Manufacturer>> {
+public class ShowAllManufacturersCLIListener implements EventListener<List<Manufacturer>> {
     private CLI cli;
 
-    public ShowAllManufacturersListener(CLI cli) {
+    public ShowAllManufacturersCLIListener(CLI cli) {
         this.cli = cli;
     }
 

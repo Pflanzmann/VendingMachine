@@ -1,15 +1,16 @@
-package com.vending.ui.event;
+package com.vending.ui.event.cli;
 
 import com.vending.models.cakes.Cake;
 import com.vending.ui.CLI;
+import com.vending.ui.event.EventListener;
 
 import java.util.ArrayList;
 
-public class ShowAllCakesListener implements EventListener<ArrayList<Cake>> {
+public class ShowAllCakesCLIListener implements EventListener<ArrayList<Cake>> {
 
     private CLI cli;
 
-    public ShowAllCakesListener(CLI cli) {
+    public ShowAllCakesCLIListener(CLI cli) {
         this.cli = cli;
     }
 

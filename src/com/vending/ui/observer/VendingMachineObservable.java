@@ -1,7 +1,7 @@
-package com.vending.logic;
+package com.vending.ui.observer;
 
 import com.vending.models.Allergen;
-import com.vending.ui.MyObserver;
+import com.vending.ui.observer.MyObserver;
 
 import java.util.EnumSet;
 

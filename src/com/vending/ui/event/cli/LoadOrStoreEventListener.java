@@ -1,7 +1,8 @@
-package com.vending.ui.event;
+package com.vending.ui.event.cli;
 
 import com.vending.logic.VendingMachine;
 import com.vending.models.SerializableAction;
+import com.vending.ui.event.EventListener;
 
 import java.io.*;
 

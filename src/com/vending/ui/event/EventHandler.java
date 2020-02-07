@@ -1,4 +1,4 @@
-package com.vending.ui;
+package com.vending.ui.event;
 
 import com.vending.ui.event.EventListener;
 
