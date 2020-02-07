@@ -1,13 +1,14 @@
 package com.vending.models.cakes;
 
 import com.vending.models.Allergen;
-import com.vending.models.Manufacturer;
+import com.vending.models.CoveringType;
 
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.EnumSet;
 
-public class Covering implements Cake{
+public class Covering implements Cake {
     private Cake cake;
 
     public Covering(Cake cake) {
@@ -42,5 +43,10 @@ public class Covering implements Cake{
     @Override
     public String getCakeType() {
         return cake.getCakeType();
+    }
+
+    @Override
+    public ArrayList<CoveringType> getCoverings() {
+        return cake.getCoverings();
     }
 }

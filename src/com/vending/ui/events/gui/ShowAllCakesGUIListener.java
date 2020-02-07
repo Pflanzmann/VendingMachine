@@ -1,11 +1,10 @@
-package com.vending.ui.event.gui;
+package com.vending.ui.events.gui;
 
 import com.vending.models.cakes.Cake;
-import com.vending.ui.event.EventListener;
+import com.vending.ui.events.EventListener;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 public class ShowAllCakesGUIListener implements EventListener<Cake[]> {
 

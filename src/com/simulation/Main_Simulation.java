@@ -3,7 +3,7 @@ package com.simulation;
 import com.vending.exceptions.ManufacturerAlreadyExistsException;
 import com.vending.logic.VendingMachine;
 import com.vending.models.Manufacturer;
-import com.vending.ui.event.EventHandler;
+import com.vending.ui.events.EventHandler;
 
 import java.util.Scanner;
 

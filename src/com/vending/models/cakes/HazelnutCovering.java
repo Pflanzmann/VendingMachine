@@ -1,9 +1,11 @@
 package com.vending.models.cakes;
 
 import com.vending.models.Allergen;
+import com.vending.models.CoveringType;
 
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.EnumSet;
 
 public class HazelnutCovering extends Covering {
@@ -33,14 +35,21 @@ public class HazelnutCovering extends Covering {
         Duration appleShelfLife = Duration.ofDays(15);
         Duration actualShelfLife = super.getShelfLife();
 
-        if(actualShelfLife.getSeconds() < appleShelfLife.getSeconds())
+        if (actualShelfLife.getSeconds() < appleShelfLife.getSeconds())
             return actualShelfLife;
         else
             return appleShelfLife;
     }
 
     @Override
-    public String getCakeType(){
+    public String getCakeType() {
         return super.getCakeType() + "Hazelnutcovering, ";
+    }
+
+    @Override
+    public ArrayList<CoveringType> getCoverings() {
+        ArrayList<CoveringType> coverings = super.getCoverings();
+        coverings.add(CoveringType.HAZELNUT);
+        return coverings;
     }
 }

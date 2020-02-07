@@ -1,6 +1,4 @@
-package com.vending.ui.event;
-
-import com.vending.ui.event.EventListener;
+package com.vending.ui.events;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -51,18 +51,19 @@
                                     <TextField fx:id="textFieldDeleteIndex" layoutX="96.0" layoutY="124.0" />
                                     <Button fx:id="buttonDeleteCake" layoutX="145.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#setButtonDeleteCake" text="Delete" />
                                     <Text layoutX="88.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Which slot do you want to delete?" />
+                                    <Text layoutX="91.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drag&amp;Drop to swap two slots." />
                                  </children>
                               </AnchorPane>
                            </content>
                         </Tab>
-                        <Tab text="Store/ Load">
+                        <Tab text="Storage">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="buttonStore" layoutX="50.0" layoutY="96.0" mnemonicParsing="false" onMouseClicked="#setButtonStore" text="Store" />
-                                    <Button fx:id="buttonLoad" layoutX="51.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#setButtonLoad" text="Load" />
-                                    <Text layoutX="50.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stores all cakes and manufacturers on the disk." />
-                                    <Text layoutX="51.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loads all cakes and manufacturers from the disk." />
+                                    <Button fx:id="buttonStore" layoutX="50.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#setButtonStore" text="Store" />
+                                    <Button fx:id="buttonLoad" layoutX="51.0" layoutY="158.0" mnemonicParsing="false" onMouseClicked="#setButtonLoad" text="Load" />
+                                    <Text layoutX="50.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stores all cakes and manufacturers on the disk." />
+                                    <Text layoutX="51.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loads all cakes and manufacturers from the disk." />
                                  </children>
                               </AnchorPane>
                            </content>

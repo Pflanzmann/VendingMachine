@@ -5,23 +5,26 @@ import com.vending.models.Manufacturer;
 import com.vending.models.SerializableAction;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
-import com.vending.ui.event.EventHandler;
+import com.vending.ui.events.EventHandler;
 
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.EnumSet;
 import java.util.Scanner;
 
+import javafx.util.Pair;
+
 
 public class CLI {
 
-    public CLI(InputStream reader, PrintStream writer, EventHandler<Cake> addCakeEventHandler, EventHandler<Manufacturer> addManufacturerEventHandler, EventHandler<Integer> deleteCakeEventHandler, EventHandler<SerializableAction> loadOrStoreEventHandler) {
+    public CLI(InputStream reader, PrintStream writer, EventHandler<Cake> addCakeEventHandler, EventHandler<Manufacturer> addManufacturerEventHandler, EventHandler<Integer> deleteCakeEventHandler, EventHandler<SerializableAction> loadOrStoreEventHandler, EventHandler<Pair<Integer, Integer>> swapSlotsEventHandler) {
         this.scanner = new Scanner(reader);
         this.writer = writer;
         this.addCakeEventHandler = addCakeEventHandler;
         this.addManufacturerEventHandler = addManufacturerEventHandler;
         this.deleteCakeEventHandler = deleteCakeEventHandler;
         this.loadOrStoreEventHandler = loadOrStoreEventHandler;
+        this.swapSlotsEventHandler = swapSlotsEventHandler;
     }
 
     private Scanner scanner;
@@ -30,6 +33,7 @@ public class CLI {
     private EventHandler<Manufacturer> addManufacturerEventHandler;
     private EventHandler<Integer> deleteCakeEventHandler;
     private EventHandler<SerializableAction> loadOrStoreEventHandler;
+    private EventHandler<Pair<Integer, Integer>> swapSlotsEventHandler;
 
     private Integer currentSlotCount = 0;
     private EnumSet<Allergen> currentAllergens = EnumSet.noneOf(Allergen.class);
@@ -39,6 +43,8 @@ public class CLI {
     private String latestCakes = "";
     private String latestManufacturers = "";
 
+    private final String INVALID_INPUT_MESSAGE = "This is not a valid input";
+
     public void setCurrentSlotCount(Integer slots) {
         currentSlotCount = slots;
     }
@@ -47,18 +53,16 @@ public class CLI {
         currentAllergens = allergens;
     }
 
-    public void setLatestCakes(String result) {
+    public void setLatestCakesString(String result) {
         latestCakes = result;
     }
 
-    public void setLatestManufacturers(String result) {
+    public void setLatestManufacturersString(String result) {
         latestManufacturers = result;
     }
 
     public void start() {
-        boolean isStarted = true;
-
-        while (isStarted) {
+        while (true) {
             currentTitle = "Main menu";
             currentMenu = "What do you want to do?";
             currentMenu += "\n[a] -> add";
@@ -91,7 +95,7 @@ public class CLI {
                     return;
 
                 default:
-                    latestResult = "this was not a valid input";
+                    latestResult = INVALID_INPUT_MESSAGE;
                     break;
             }
         }
@@ -111,15 +115,20 @@ public class CLI {
             switch (input) {
                 case "c":
                     Cake cake = buildCake();
-                    addCakeEventHandler.invoke(cake);
-                    latestResult = "Cake got created";
+                    if (cake != null) {
+                        addCakeEventHandler.invoke(cake);
+                        latestResult = "Cake got created";
+                    }
                     return;
 
                 case "m":
                     currentTitle = "Create manufacturer";
                     currentMenu = "What is the manufacturers name?";
+                    currentMenu += "\n[x] -> exit mode";
                     printScreen();
                     String manufacturerName = scanner.nextLine();
+                    if (manufacturerName.equals("x"))
+                        return;
                     addManufacturerEventHandler.invoke(new Manufacturer(manufacturerName));
                     latestResult = "Manufacturer got created";
                     return;
@@ -128,7 +137,7 @@ public class CLI {
                     return;
 
                 default:
-                    latestResult = "this was not a valid input";
+                    latestResult = INVALID_INPUT_MESSAGE;
                     break;
             }
         }
@@ -168,7 +177,7 @@ public class CLI {
                     return null;
 
                 default:
-                    latestResult = "this was not a valid input";
+                    latestResult = INVALID_INPUT_MESSAGE;
                     break;
             }
         }
@@ -200,7 +209,7 @@ public class CLI {
                     return;
 
                 default:
-                    latestResult = "this was not a valid input";
+                    latestResult = INVALID_INPUT_MESSAGE;
                     break;
             }
         }
@@ -215,12 +224,14 @@ public class CLI {
 
         String input = scanner.nextLine();
 
+        if (input.equals("x"))
+            return;
 
         int index = -1;
         try {
             index = Integer.parseInt(input);
         } catch (Exception e) {
-            latestResult = "this was not a valid input: " + input;
+            latestResult = INVALID_INPUT_MESSAGE + ": " + input;
             return;
         }
         latestResult = "The slot is now empty";
@@ -234,6 +245,7 @@ public class CLI {
             currentMenu = "What do you want to do?";
             currentMenu += "\n[l] -> load";
             currentMenu += "\n[s] -> store";
+            currentMenu += "\n[sw] -> swap";
             currentMenu += "\n[x] -> exit";
             printScreen();
 
@@ -251,14 +263,45 @@ public class CLI {
                     latestResult = "The vending machine got stored";
                     return;
 
+                case "sw":
+                    swapMode();
+                    return;
+
                 case "x":
                     return;
 
                 default:
-                    latestResult = "this was not a valid input";
+                    latestResult = INVALID_INPUT_MESSAGE;
                     break;
             }
         }
+    }
+
+    private void swapMode() {
+        currentTitle = "Delete mode";
+        currentMenu = "Which slots do you want to swap?";
+        currentMenu += "\n[x] -> exit";
+        latestResult = "";
+        printScreen();
+
+        String input1 = scanner.nextLine();
+        String input2 = scanner.nextLine();
+
+        if (input1.equals("x") || input2.equals("x"))
+            return;
+
+        int origin = -1;
+        int destination = -1;
+
+        try {
+            origin = Integer.parseInt(input1);
+            destination = Integer.parseInt(input2);
+        } catch (Exception e) {
+            latestResult = INVALID_INPUT_MESSAGE + ": " + input1 + " or " + input2;
+            return;
+        }
+        latestResult = "The slots got swapped";
+        swapSlotsEventHandler.invoke(new Pair(origin, destination));
     }
 
     private void printScreen() {

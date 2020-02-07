@@ -1,10 +1,9 @@
-package com.vending.ui.event.cli;
+package com.vending.ui.events.cli;
 
 import com.vending.models.Manufacturer;
 import com.vending.ui.CLI;
-import com.vending.ui.event.EventListener;
+import com.vending.ui.events.EventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShowAllManufacturersCLIListener implements EventListener<List<Manufacturer>> {
@@ -22,6 +21,6 @@ public class ShowAllManufacturersCLIListener implements EventListener<List<Manuf
             output += "\nManufacturer name: " + value.get(i).getName();
         }
 
-        cli.setLatestManufacturers(output);
+        cli.setLatestManufacturersString(output);
     }
 }

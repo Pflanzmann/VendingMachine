@@ -1,17 +1,17 @@
-package com.vending.ui.event.cli;
+package com.vending.ui.events.cli;
 
 import com.vending.exceptions.ContainsCakeException;
 import com.vending.exceptions.ManufacturerNotFoundException;
 import com.vending.exceptions.NoSpaceException;
 import com.vending.logic.VendingMachine;
 import com.vending.models.cakes.Cake;
-import com.vending.ui.event.EventListener;
+import com.vending.ui.events.EventListener;
 
-public class AddCakeEventListener implements EventListener<Cake> {
+public class AddCakeListener implements EventListener<Cake> {
 
     private VendingMachine vendingMachine;
 
-    public AddCakeEventListener(VendingMachine vendingMachine) {
+    public AddCakeListener(VendingMachine vendingMachine) {
         this.vendingMachine = vendingMachine;
     }
 

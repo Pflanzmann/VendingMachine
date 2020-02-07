@@ -7,7 +7,7 @@ import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
 import com.vending.models.cakes.HazelnutCovering;
-import com.vending.ui.event.EventHandler;
+import com.vending.ui.events.EventHandler;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

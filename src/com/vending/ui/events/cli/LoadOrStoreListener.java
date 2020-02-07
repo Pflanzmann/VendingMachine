@@ -1,18 +1,18 @@
-package com.vending.ui.event.cli;
+package com.vending.ui.events.cli;
 
 import com.vending.logic.VendingMachine;
 import com.vending.models.SerializableAction;
-import com.vending.ui.event.EventListener;
+import com.vending.ui.events.EventListener;
 
 import java.io.*;
 
-public class LoadOrStoreEventListener implements EventListener<SerializableAction> {
+public class LoadOrStoreListener implements EventListener<SerializableAction> {
 
     private VendingMachine vendingMachine;
 
     private final String FILE_NAME = "vendingMachineData.txt";
 
-    public LoadOrStoreEventListener(VendingMachine vendingMachine) {
+    public LoadOrStoreListener(VendingMachine vendingMachine) {
         this.vendingMachine = vendingMachine;
     }
 

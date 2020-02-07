@@ -1,9 +1,9 @@
-package com.vending.ui.event.cli;
+package com.vending.ui.events.cli;
 
 import com.vending.exceptions.ManufacturerAlreadyExistsException;
 import com.vending.logic.VendingMachine;
 import com.vending.models.Manufacturer;
-import com.vending.ui.event.EventListener;
+import com.vending.ui.events.EventListener;
 
 public class AddManufacturerListener implements EventListener<Manufacturer> {
 

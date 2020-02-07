@@ -1,9 +1,11 @@
 package com.vending.models.cakes;
 
 import com.vending.models.Allergen;
+import com.vending.models.CoveringType;
 
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.EnumSet;
 
 public class CakeBasis implements Cake {
@@ -46,6 +48,13 @@ public class CakeBasis implements Cake {
     @Override
     public String getCakeType() {
         return "Cake basis with: ";
+    }
+
+    @Override
+    public ArrayList<CoveringType> getCoverings() {
+        ArrayList<CoveringType> covering = new ArrayList<>();
+        covering.add(CoveringType.BASE);
+        return covering;
     }
 
     public static class CakeFactory {

@@ -5,7 +5,7 @@ import com.vending.logic.VendingMachine;
 import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
 import com.vending.models.cakes.CakeBasis;
-import com.vending.ui.event.EventHandler;
+import com.vending.ui.events.EventHandler;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

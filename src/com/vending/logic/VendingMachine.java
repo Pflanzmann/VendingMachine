@@ -4,7 +4,7 @@ import com.vending.exceptions.*;
 import com.vending.models.Allergen;
 import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
-import com.vending.ui.event.EventHandler;
+import com.vending.ui.events.EventHandler;
 import com.vending.ui.observer.MyObserver;
 import com.vending.ui.observer.VendingMachineObservable;
 
@@ -92,6 +92,33 @@ public class VendingMachine implements VendingMachineObservable {
         }
     }
 
+    public synchronized void removeCake(Cake cake) {
+        cakeDate.remove(cake);
+
+        for (int i = 0; i < cakeSlots.length; i++)
+            if (cakeSlots[i] == cake)
+                cakeSlots[i] = null;
+
+        reCalculateAllAllergens();
+
+        updateSlotCountObservable();
+        updateAllergenObservable();
+
+        showAllCakesHandler.invoke(cakeSlots.clone());
+    }
+
+    public void swapSlots(int origin, int destination) {
+        if (cakeSlots.length <= origin || cakeSlots.length <= destination || origin < 0 || destination < 0)
+            return;
+
+        Cake tempCake = cakeSlots[origin];
+
+        cakeSlots[origin] = cakeSlots[destination];
+        cakeSlots[destination] = tempCake;
+
+        showAllCakesHandler.invoke(cakeSlots.clone());
+    }
+
     public synchronized Cake[] getAllCakes() {
         return cakeSlots;
     }
@@ -125,21 +152,6 @@ public class VendingMachine implements VendingMachineObservable {
         long diffInSeconds = (new Date().getSeconds() - cakeDate.get(Cake).getSeconds());
         duration = duration.minusSeconds(diffInSeconds);
         return duration;
-    }
-
-    public synchronized void removeCake(Cake cake) {
-        cakeDate.remove(cake);
-
-        for (int i = 0; i < cakeSlots.length; i++)
-            if (cakeSlots[i] == cake)
-                cakeSlots[i] = null;
-
-        reCalculateAllAllergens();
-
-        updateSlotCountObservable();
-        updateAllergenObservable();
-
-        showAllCakesHandler.invoke(cakeSlots.clone());
     }
 
     public EnumSet<Allergen> getAllAllergens() {
