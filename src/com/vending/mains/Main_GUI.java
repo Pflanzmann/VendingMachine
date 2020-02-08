@@ -1,7 +1,7 @@
 package com.vending.mains;
 
-import com.vending.ui.GuiController;
-import com.vending.ui.RemoteStartCLI;
+import com.vending.ui.gui.GuiController;
+import com.vending.helper.RemoteStartCLI;
 
 import java.io.*;
 

@@ -43,7 +43,7 @@ public class HazelnutCovering extends Covering {
 
     @Override
     public String getCakeType() {
-        return super.getCakeType() + "Hazelnutcovering, ";
+        return super.getCakeType() + "Hazelnut, ";
     }
 
     @Override

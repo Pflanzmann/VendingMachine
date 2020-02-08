@@ -4,9 +4,9 @@ import com.vending.logic.VendingMachine;
 import com.vending.models.Manufacturer;
 import com.vending.models.SerializableAction;
 import com.vending.models.cakes.Cake;
-import com.vending.ui.CLI;
-import com.vending.ui.events.EventHandler;
-import com.vending.ui.events.cli.*;
+import com.vending.ui.cli.events.CLI;
+import com.vending.ui.EventHandler;
+import com.vending.ui.cli.events.*;
 
 import java.util.List;
 

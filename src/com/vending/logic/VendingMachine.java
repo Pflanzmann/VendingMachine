@@ -4,9 +4,8 @@ import com.vending.exceptions.*;
 import com.vending.models.Allergen;
 import com.vending.models.Manufacturer;
 import com.vending.models.cakes.Cake;
-import com.vending.ui.events.EventHandler;
-import com.vending.ui.observer.MyObserver;
-import com.vending.ui.observer.VendingMachineObservable;
+import com.vending.ui.EventHandler;
+import com.vending.ui.cli.observer.MyObserver;
 
 import java.io.*;
 import java.time.Duration;
@@ -107,9 +106,9 @@ public class VendingMachine implements VendingMachineObservable {
         showAllCakesHandler.invoke(cakeSlots.clone());
     }
 
-    public void swapSlots(int origin, int destination) {
+    public void swapSlots(int origin, int destination) throws SwapNotPossibleException {
         if (cakeSlots.length <= origin || cakeSlots.length <= destination || origin < 0 || destination < 0)
-            return;
+            throw new SwapNotPossibleException();
 
         Cake tempCake = cakeSlots[origin];
 
@@ -183,13 +182,13 @@ public class VendingMachine implements VendingMachineObservable {
 
     private void updateAllergenObservable() {
         for (MyObserver<EnumSet<Allergen>> observer : observersAllergen) {
-            observer.handle(containingAllergens);
+            observer.update(containingAllergens);
         }
     }
 
     private void updateSlotCountObservable() {
         for (MyObserver<Integer> observer : observersSlotCount) {
-            observer.handle(freeSlots);
+            observer.update(freeSlots);
         }
     }
 
@@ -200,9 +199,19 @@ public class VendingMachine implements VendingMachineObservable {
     }
 
     @Override
+    public void removeObserverAllergens(MyObserver<EnumSet<Allergen>> observer) {
+        observersSlotCount.remove(observer);
+    }
+
+    @Override
     public void addObserverSlotCount(MyObserver<Integer> observer) {
         observersSlotCount.add(observer);
         updateSlotCountObservable();
+    }
+
+    @Override
+    public void removeObserverSlotCount(MyObserver<Integer> observer) {
+        observersSlotCount.remove(observer);
     }
 
     public synchronized void serialize(OutputStream fileOutputStream) throws IOException {
@@ -213,14 +222,19 @@ public class VendingMachine implements VendingMachineObservable {
         objectOutputStream.writeObject(allLists);
     }
 
-    public synchronized void deserialize(InputStream fileInputStream) throws IOException, ClassNotFoundException {
-        ObjectInputStream inO = new ObjectInputStream(fileInputStream);
+    public synchronized void deserialize(InputStream fileInputStream) {
+        try {
+            ObjectInputStream inO = new ObjectInputStream(fileInputStream);
 
-        Object[] allLists = (Object[]) inO.readObject();
-
-        this.manufacturerList = (HashMap<String, Manufacturer>) allLists[0];
-        this.cakeSlots = (Cake[]) allLists[1];
-        this.cakeDate = (HashMap<Cake, Date>) allLists[2];
+            Object[] allLists = (Object[]) inO.readObject();
+            this.manufacturerList = (HashMap<String, Manufacturer>) allLists[0];
+            this.cakeSlots = (Cake[]) allLists[1];
+            this.cakeDate = (HashMap<Cake, Date>) allLists[2];
+        } catch (Exception e) {
+            this.manufacturerList = new HashMap<>();
+            this.cakeSlots = new Cake[maxSlots];
+            this.cakeDate = new HashMap<>();
+        }
 
         reCalculateAllAllergens();
         updateAllergenObservable();

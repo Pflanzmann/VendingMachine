@@ -44,7 +44,7 @@ public class PeanutCovering extends Covering {
 
     @Override
     public String getCakeType(){
-        return super.getCakeType() + "Peanutcovering, ";
+        return super.getCakeType() + "Peanut, ";
     }
 
     @Override

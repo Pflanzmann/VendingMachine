@@ -56,16 +56,4 @@ public class CakeBasis implements Cake {
         covering.add(CoveringType.BASE);
         return covering;
     }
-
-    public static class CakeFactory {
-
-        public static Cake addPeanutCovering(Cake cake) {
-            return new PeanutCovering(cake);
-        }
-
-        public static Cake addHazelnutCovering(Cake cake) {
-            return new HazelnutCovering(cake);
-        }
-    }
-
 }

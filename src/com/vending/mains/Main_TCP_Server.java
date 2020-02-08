@@ -1,6 +1,6 @@
 package com.vending.mains;
 
-import com.vending.ui.RemoteStartCLI;
+import com.vending.helper.RemoteStartCLI;
 
 import java.io.*;
 import java.net.ServerSocket;

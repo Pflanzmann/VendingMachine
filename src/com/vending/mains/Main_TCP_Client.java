@@ -1,6 +1,6 @@
 package com.vending.mains;
 
-import com.vending.ui.GuiController;
+import com.vending.ui.gui.GuiController;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 
 public class Main_TCP_Client extends Application {
 
-    private GuiController controller;
     private FXMLLoader loader;
 
     @Override

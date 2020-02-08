@@ -11,10 +11,16 @@ import java.util.EnumSet;
 
 public interface Cake extends Serializable {
     String getManufacturerName();
+
     BigDecimal getPrice();
+
     EnumSet<Allergen> getAllergens();
+
     int getNutritionalValue();
+
     Duration getShelfLife();
+
     String getCakeType();
+
     ArrayList<CoveringType> getCoverings();
 }
